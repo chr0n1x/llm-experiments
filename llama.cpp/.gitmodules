@@ -1,0 +1,6 @@
+[submodule "blis"]
+	path = blis
+	url = https://github.com/flame/blis
+[submodule "llama.cpp"]
+	path = llama.cpp
+	url = https://github.com/ggml-org/llama.cpp
