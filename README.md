@@ -52,7 +52,15 @@ Run: `./qwen3.6.bash`
 
 ## Service files
 
-Both directories include systemd unit files (`*.service`) to run the servers as persistent background processes. Install with `systemctl enable --now <service>`.
+Both directories include systemd unit files (`*.service`) to run the servers as persistent background processes. Copy each service file into `/etc/systemd/system/`, then reload and enable:
+
+```bash
+sudo cp llama.cpp/llama-cpp.service /etc/systemd/system/
+sudo systemctl daemon-reload
+sudo systemctl enable --now llama-cpp.service
+```
+
+Verify with `systemctl is-enabled llama-cpp.service` — it should report `enabled`.
 
 ## Models
 

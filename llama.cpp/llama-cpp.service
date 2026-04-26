@@ -5,10 +5,9 @@ After=network.target
 [Service]
 Type=simple
 User=kran
-WorkingDirectory=/home/kran/Code/llama.cpp
+WorkingDirectory=/home/kran/Code/kran/llm-experiments/llama.cpp
 
-# Replace paths with your absolute local paths
-ExecStart=/home/kran/Code/llama.cpp/qwen3.6-27b.bash
+ExecStart=/home/kran/Code/kran/llm-experiments/llama.cpp/qwen3.6-27b.bash
 # Handling failures and logs
 Restart=on-failure
 RestartSec=5s
