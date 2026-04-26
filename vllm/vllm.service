@@ -1,0 +1,19 @@
+[Unit]
+Description=vllm OpenAI API Server for Qwen 3.6
+After=network.target
+
+[Service]
+Type=simple
+User=kran
+WorkingDirectory=/home/kran/Code/vllm
+
+# Replace paths with your absolute local paths
+ExecStart=/home/kran/Code/vllm/qwen3.6.bash
+# Handling failures and logs
+Restart=on-failure
+RestartSec=5s
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,5 @@
+export PATH="$PATH:.venv/bin"
+# export VLLM_VERSION=$(curl -s https://api.github.com/repos/vllm-project/vllm/releases/latest | jq -r .tag_name | sed 's/^v//')
+export CUDA_VERSION=130
+export CPU_ARCH=$(uname -m)
+export HF_TOKEN=
