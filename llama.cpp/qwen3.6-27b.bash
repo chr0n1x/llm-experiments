@@ -21,7 +21,7 @@ export GGML_CUDA_FORCE_MMQ=true
 # -hf unsloth/Qwen3.6-35B-A3B-GGUF:UD-Q4_K_S \
 # -hf llmfan46/Qwen3.6-35B-A3B-uncensored-heretic-GGUF:Q3_K_M \
 
-/home/kran/Code/llama.cpp/llama.cpp/build/bin/llama-server \
+/home/kran/Code/kran/llm-experiments/llama.cpp/llama.cpp/build/bin/llama-server \
   -hf unsloth/Qwen3.6-35B-A3B-GGUF:UD-Q4_K_M \
   --n-cpu-moe 10 \
   --host :: \
