@@ -1,1 +1,8 @@
 vllm/.envrc
+.envrc
+llama.cpp/.envrc
+llama.cpp/blis/
+llama.cpp/llama.cpp/
+llama.cpp/build/
+vllm/.venv/
+vllm/.config.json
