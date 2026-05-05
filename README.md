@@ -83,3 +83,4 @@ Verify with `systemctl is-enabled llama-cpp.service` — it should report `enabl
 - Both backends default to port 8000 — they are mutually exclusive. Change one if running both.
 - The llama.cpp launcher includes several commented-out model variants for quick switching between quantizations and uncensored forks.
 - The vLLM `.envrc` is gitignored; use `envrc.sample` as a template.
+- If running with a display manager (SDDM + Hyprland), ~600 MB VRAM is consumed by the compositor, shaders, and Xorg/Wayland processes. For maximum VRAM for inference, run headless: `sudo systemctl disable --now sddm && sudo systemctl set-default multi-user.target`. Re-enable GUI with: `sudo systemctl enable --now sddm && sudo systemctl set-default graphical.target`.
