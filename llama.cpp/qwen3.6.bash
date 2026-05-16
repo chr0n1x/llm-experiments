@@ -28,7 +28,7 @@ export GGML_CUDA_FORCE_MMQ=true
 # -hf llmfan46/Qwen3.6-35B-A3B-uncensored-heretic-GGUF:Q3_K_M \
 
 /home/kran/Code/kran/llm-experiments/llama.cpp/llama.cpp/build/bin/llama-server \
-  -hf unsloth/Qwen3.6-35B-A3B-MTP-GGUF:UD-Q5_K_M \
+  -hf unsloth/Qwen3.6-35B-A3B-GGUF:UD-Q5_K_M \
   --n-cpu-moe 10 \
   --host :: \
   --port 8000 \
@@ -44,8 +44,8 @@ export GGML_CUDA_FORCE_MMQ=true
   --top-k 20 \
   --presence-penalty 1.5 \
   --min-p 0.00 \
-  --reasoning off \
-  --spec-type draft-mtp --spec-draft-n-max 1 # for MTP
+  --reasoning off
+  # --spec-type draft-mtp --spec-draft-n-max 1 # for MTP
 
 
   # --draft-max 16 --draft-min 1 --draft-p-min 0.6
