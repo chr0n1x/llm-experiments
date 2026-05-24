@@ -48,6 +48,7 @@ export GGML_CUDA_FORCE_MMQ=true
   --presence-penalty 1.5 \
   --min-p 0.00 \
   --reasoning off
+  --jinja \
   --spec-type draft-mtp --spec-draft-n-max 3 # for MTP
 
 
