@@ -29,17 +29,21 @@ export GGML_CUDA_FORCE_MMQ=true
 # -hf unsloth/Qwen3.6-35B-A3B-MTP-GGUF:UD-Q6_K \
 # -hf llmfan46/Qwen3.6-35B-A3B-uncensored-heretic-GGUF:Q3_K_M \
 
-# claude-code auto-compacts @ 150k
+# most recents
+# -hf unsloth/gemma-4-31B-it-qat-GGUF:UD-Q4_K_XL \
+# -hf unsloth/Qwen3.6-35B-A3B-MTP-GGUF:UD-Q6_K \
+# -hf unsloth/gemma-4-26B-A4B-it-qat-GGUF:UD-Q4_K_XL \
+
 /home/kran/Code/kran/llm-experiments/llama.cpp/llama.cpp/build/bin/llama-server \
-  -hf unsloth/Qwen3.6-35B-A3B-MTP-GGUF:UD-Q6_K \
+  -hf unsloth/gemma-4-26B-A4B-it-qat-GGUF:UD-Q4_K_XL \
   --n-cpu-moe 10 \
   --host :: \
   --port 8000 \
-  --n-gpu-layers all --ctx-size 250000 \
+  --n-gpu-layers all --ctx-size 1000000 \
   --cache-type-v q8_0 --cache-type-k q8_0  \
   --mlock \
   --flash-attn on \
-  --threads-batch 8 --threads 8 --parallel 1 \
+  --threads-batch 8 --threads 8 --parallel 4 \
   --cont-batching --batch-size 8192 --ubatch-size 2048 \
   --prio 3 --poll 100 \
   --temp 0.7 \

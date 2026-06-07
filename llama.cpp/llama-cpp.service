@@ -1,5 +1,5 @@
 [Unit]
-Description=Llama.cpp OpenAI API Server for Qwen 3.6
+Description=Llama.cpp OpenAI API Server
 After=network.target
 
 [Service]
@@ -7,7 +7,7 @@ Type=simple
 User=kran
 WorkingDirectory=/home/kran/Code/kran/llm-experiments/llama.cpp
 
-ExecStart=/home/kran/Code/kran/llm-experiments/llama.cpp/qwen3.6.bash
+ExecStart=/home/kran/Code/kran/llm-experiments/llama.cpp/llm.bash
 # Handling failures and logs
 Restart=on-failure
 RestartSec=5s
