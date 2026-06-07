@@ -31,11 +31,16 @@ export GGML_CUDA_FORCE_MMQ=true
 
 # most recents
 # -hf unsloth/gemma-4-31B-it-qat-GGUF:UD-Q4_K_XL \
+
+# best ones
 # -hf unsloth/Qwen3.6-35B-A3B-MTP-GGUF:UD-Q6_K \
 # -hf unsloth/gemma-4-26B-A4B-it-qat-GGUF:UD-Q4_K_XL \
 
+# -hf unsloth/gemma-4-12B-it-qat-GGUF:UD-Q4_K_XL \
+# -hfd Janvitos/gemma-4-12B-it-qat-assistant-MTP-Q8_0-GGUF:Q8_0 \
+
 /home/kran/Code/kran/llm-experiments/llama.cpp/llama.cpp/build/bin/llama-server \
-  -hf unsloth/gemma-4-26B-A4B-it-qat-GGUF:UD-Q4_K_XL \
+  -hf unsloth/Qwen3.6-35B-A3B-MTP-GGUF:UD-Q6_K \
   --n-cpu-moe 10 \
   --host :: \
   --port 8000 \
@@ -50,27 +55,7 @@ export GGML_CUDA_FORCE_MMQ=true
   --top-p 0.8 \
   --top-k 20 \
   --presence-penalty 1.5 \
+  --reasoning off \
   --min-p 0.00 \
-  --reasoning off
   --jinja \
   --spec-type draft-mtp --spec-draft-n-max 3 # for MTP
-
-
-  # --draft-max 16 --draft-min 1 --draft-p-min 0.6
-  # --temp 0.6 \
-  # --top-k 20 \
-  # --top-p 0.95 \
-  # --min-p 0.0 \
-  # --repeat-penalty 1.0 \
-  # --presence-penalty 0 \
-  # --prio 3 \
-  # --spec-type ngram-mod \
-  # --spec-ngram-size-n 24 \
-  # --draft-min 4 \
-  # --draft-max 48 \
-  # --no-mmproj
-
-  # --cache-type-k q8_0 \
-  # --cache-type-v q8_0 \
-  # --host :: \
-  # --port 8000
