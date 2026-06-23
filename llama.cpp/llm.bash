@@ -2,6 +2,7 @@
 
 # building with:
 # using BLIS https://github.com/ggml-org/llama.cpp/blob/master/docs/backend/BLIS.md
+#
 #   cmake -B build -DGGML_CUDA=ON -DCMAKE_CUDA_ARCHITECTURES="86" -DGGML_CUDA_FA_ALL_QUANTS="true" -DGGML_CUDA_FORCE_MMQ="true" -DGGML_BLAS=ON -DGGML_BLAS_VENDOR=FLAME
 #   cmake --build build --config Release -j
 
@@ -44,8 +45,8 @@ export GGML_CUDA_FORCE_MMQ=true
   --n-cpu-moe 10 \
   --host :: \
   --port 8000 \
-  --n-gpu-layers all --ctx-size 750000 \
-  --cache-type-v f16 --cache-type-k f16 \
+  --n-gpu-layers all --ctx-size 760000 \
+  --cache-type-v f16 --cache-type-k q8_0 \
   --mlock \
   --flash-attn on \
   --threads-batch 8 --threads 8 --parallel 3 \
@@ -56,6 +57,6 @@ export GGML_CUDA_FORCE_MMQ=true
   --top-k 20 \
   --presence-penalty 1.5 \
   --reasoning on \
-  --min-p 0.00
+  --min-p 0.00 \
+  --spec-type draft-mtp --spec-draft-n-max 3 # for MTP
   # --jinja \
-  # --spec-type draft-mtp --spec-draft-n-max 3 # for MTP
