@@ -45,7 +45,7 @@ export GGML_CUDA_FORCE_MMQ=true
   --n-cpu-moe 10 \
   --host :: \
   --port 8000 \
-  --n-gpu-layers all --ctx-size 524000 \
+  --n-gpu-layers all --ctx-size 550000 \
   --cache-type-v f16 --cache-type-k f16 \
   --mlock \
   --flash-attn on \
@@ -53,10 +53,10 @@ export GGML_CUDA_FORCE_MMQ=true
   --cont-batching --batch-size 8192 --ubatch-size 2048 \
   --prio 3 --poll 100 \
   --temp 0.0 \
-  --top-p 0.7 \
-  --top-k 40 \
-  --presence-penalty 1.3 \
-  --reasoning off \
+  --top-p 0.6 \
+  --top-k 30 \
+  --presence-penalty 1.6 \
+  --reasoning on \
   --min-p 0.05 \
   --spec-type draft-mtp --spec-draft-n-max 4 # for MTP
 
