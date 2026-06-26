@@ -1,5 +1,7 @@
 # LLM Experiments
 
+_ALL DOCS HERE ARE LLM GENERATED, ONLY MANUALLY TOUCHED CODE ARE IN llama.cpp (script and compilation)_
+
 Local inference experiments running Qwen 3.6 models on a single GPU, comparing two serving backends: llama.cpp and vLLM.
 
 ## Hardware
