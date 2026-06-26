@@ -49,15 +49,15 @@ export GGML_CUDA_FORCE_MMQ=true
   --cache-type-v f16 --cache-type-k f16 \
   --mlock \
   --flash-attn on \
-  --threads-batch 8 --threads 4 --parallel 2 \
+  --threads-batch 8 --threads 8 --parallel 2 \
   --cont-batching --batch-size 8192 --ubatch-size 2048 \
   --prio 3 --poll 100 \
-  --temp 0.0 \
-  --top-p 0.6 \
-  --top-k 30 \
-  --presence-penalty 1.6 \
+  --temp 0.7 \
+  --top-p 0.8 \
+  --min-p 0.00 \
+  --top-k 20 \
+  --presence-penalty 1.5 \
   --reasoning on \
-  --min-p 0.05 \
   --spec-type draft-mtp --spec-draft-n-max 4 # for MTP
 
   # --jinja \
