@@ -15,6 +15,8 @@ export GGML_CUDA_FORCE_MMQ=true
 
 # -hf unsloth/Qwen3.6-27B-GGUF:Q4_K_S \
 # -hf unsloth/Qwen3.6-27B-GGUF:Q5_K_S \
+# -hf unsloth/Qwen3.6-27B-MTP-GGUF:UD-Q5_K_XL \
+# -hf unsloth/Qwen3.6-27B-MTP-GGUF:Q6_K \
 # -hf unsloth/Qwen3.6-27B-NVFP4 \
 # -hf llmfan46/Qwen3.6-27B-uncensored-heretic-v2-GGUF:Q3_K_M \
 # -hf llmfan46/Qwen3.6-27B-uncensored-heretic-v2-GGUF:Q3_K_L \
@@ -40,12 +42,17 @@ export GGML_CUDA_FORCE_MMQ=true
 # -hf unsloth/gemma-4-12B-it-qat-GGUF:UD-Q4_K_XL \
 # -hfd Janvitos/gemma-4-12B-it-qat-assistant-MTP-Q8_0-GGUF:Q8_0 \
 
+# -hf unsloth/Qwen3.6-35B-A3B-MTP-GGUF:UD-Q6_K \
+# -hf unsloth/gemma-4-26B-A4B-it-qat-GGUF:UD-Q4_K_XL \
+# -hf unsloth/Qwen3.6-27B-MTP-GGUF:UD-Q4_K_XL \
+# -hf unsloth/Qwen3.6-27B-MTP-GGUF:UD-Q3_K_XL \
+# -hf unsloth/gemma-4-26B-A4B-it-qat-GGUF:UD-Q4_K_XL \
 /home/kran/Code/kran/llm-experiments/llama.cpp/llama.cpp/build/bin/llama-server \
   -hf unsloth/Qwen3.6-35B-A3B-MTP-GGUF:UD-Q6_K \
   --n-cpu-moe 10 \
   --host :: \
   --port 8000 \
-  --n-gpu-layers all --ctx-size 550000 \
+  --n-gpu-layers all --ctx-size 560000 \
   --cache-type-v f16 --cache-type-k f16 \
   --mlock \
   --flash-attn on \
@@ -58,6 +65,6 @@ export GGML_CUDA_FORCE_MMQ=true
   --top-k 20 \
   --presence-penalty 1.5 \
   --reasoning on \
+  --jinja \
   --spec-type draft-mtp --spec-draft-n-max 4 # for MTP
 
-  # --jinja \
