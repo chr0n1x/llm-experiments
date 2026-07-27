@@ -12,41 +12,9 @@ export GGML_CUDA_FA_ALL_QUANTS=true
 export GGML_CUDA_FORCE_MMQ=true
 
 # pick poison
-
-# -hf unsloth/Qwen3.6-27B-GGUF:Q4_K_S \
-# -hf unsloth/Qwen3.6-27B-GGUF:Q5_K_S \
-# -hf unsloth/Qwen3.6-27B-MTP-GGUF:UD-Q5_K_XL \
-# -hf unsloth/Qwen3.6-27B-MTP-GGUF:Q6_K \
-# -hf unsloth/Qwen3.6-27B-NVFP4 \
-# -hf llmfan46/Qwen3.6-27B-uncensored-heretic-v2-GGUF:Q3_K_M \
-# -hf llmfan46/Qwen3.6-27B-uncensored-heretic-v2-GGUF:Q3_K_L \
-# -hf llmfan46/Qwen3.6-27B-uncensored-heretic-v2-GGUF:Q5_K_S \
-
-# -hf unsloth/Qwen3.6-35B-A3B:UD-Q4_K_M \
-# -hf unsloth/Qwen3.6-35B-A3B-GGUF:UD-Q4_K_S \
-# -hf unsloth/Qwen3.6-35B-A3B-GGUF:UD-Q4_K_M \
-# -hf unsloth/Qwen3.6-35B-A3B-GGUF:UD-Q5_K_S \
-# -hf unsloth/Qwen3.6-35B-A3B-GGUF:UD-Q5_K_M \
-# -hf unsloth/Qwen3.6-35B-A3B-MTP-GGUF:UD-Q5_K_M \
-# -hf unsloth/Qwen3.6-35B-A3B-MTP-GGUF:UD-Q5_K_XL \
-# -hf unsloth/Qwen3.6-35B-A3B-MTP-GGUF:UD-Q6_K \
-# -hf llmfan46/Qwen3.6-35B-A3B-uncensored-heretic-GGUF:Q3_K_M \
-
-# most recents
-# -hf unsloth/gemma-4-31B-it-qat-GGUF:UD-Q4_K_XL \
-
-# best ones
 # -hf unsloth/Qwen3.6-35B-A3B-MTP-GGUF:UD-Q6_K \
 # -hf unsloth/gemma-4-26B-A4B-it-qat-GGUF:UD-Q4_K_XL \
-
-# -hf unsloth/gemma-4-12B-it-qat-GGUF:UD-Q4_K_XL \
-# -hfd Janvitos/gemma-4-12B-it-qat-assistant-MTP-Q8_0-GGUF:Q8_0 \
-
-# -hf unsloth/Qwen3.6-35B-A3B-MTP-GGUF:UD-Q6_K \
-# -hf unsloth/gemma-4-26B-A4B-it-qat-GGUF:UD-Q4_K_XL \
-# -hf unsloth/Qwen3.6-27B-MTP-GGUF:UD-Q4_K_XL \
-# -hf unsloth/Qwen3.6-27B-MTP-GGUF:UD-Q3_K_XL \
-# -hf unsloth/gemma-4-26B-A4B-it-qat-GGUF:UD-Q4_K_XL \
+# -hf unsloth/gemma-4-26B-A4B-it-GGUF:UD-Q5_K_XL \
 /home/kran/Code/kran/llm-experiments/llama.cpp/llama.cpp/build/bin/llama-server \
   -hf unsloth/Qwen3.6-35B-A3B-MTP-GGUF:UD-Q6_K \
   --n-cpu-moe 10 \
@@ -66,5 +34,4 @@ export GGML_CUDA_FORCE_MMQ=true
   --presence-penalty 1.5 \
   --reasoning on \
   --jinja \
-  --spec-type draft-mtp --spec-draft-n-max 4 # for MTP
-
+  --spec-type draft-mtp --spec-draft-n-max 3 # for MTP
