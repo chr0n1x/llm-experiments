@@ -23,26 +23,31 @@ export GGML_CUDA_FORCE_MMQ=true
 # -hf unsloth/Qwen3.6-35B-A3B-MTP-GGUF:UD-Q6_K \
 # -hf unsloth/gemma-4-26B-A4B-it-qat-GGUF:UD-Q4_K_XL \
 # -hf unsloth/gemma-4-26B-A4B-it-GGUF:UD-Q5_K_XL \
-# unsloth/Qwen3.8-27B-GGUF
+#
+# unsloth/Qwen3.8-27B-GGUF -- note that default template is broken
+#
 # -hf unsloth/Qwen3.8-27B-GGUF:UD-Q4_K_XL \
+# --chat-template-file ./qwen3.8.template.jinja \
+#
+# -hf ukisai/Swift-Qwen3.8-27B-GGUF:Q5_K_M \
+# -hf ukisai/Swift-Qwen3.8-27B-GGUF:Q4_K_M \
 /home/kran/Code/kran/llm-experiments/llama.cpp/llama.cpp/build/bin/llama-server \
   --n-cpu-moe 11 \
-  -hf unsloth/Qwen3.8-27B-GGUF:UD-Q4_K_XL \
-  --cache-type-v q4_0 --cache-type-k q5_0 \
+  -hf ukisai/Swift-Qwen3.8-27B-GGUF:Q4_K_M \
+  --cache-type-v q4_0 --cache-type-k q8_0 \
   --host :: \
   --port 8000 \
-  --n-gpu-layers all --ctx-size 410000 \
-  --mlock \
+  --n-gpu-layers all --ctx-size 210000 \
   --flash-attn on \
-  --threads-batch 8 --threads 8 --parallel 2 \
+  --threads-batch 8 --threads 8 --parallel 1 \
   --cont-batching --batch-size 8192 --ubatch-size 2048 \
   --prio 3 --poll 100 \
-  --temp 0.7 \
-  --top-p 0.8 \
+  --temp 1.0 \
+  --top-p 0.95 \
   --min-p 0.00 \
   --top-k 20 \
-  --presence-penalty 1.6 \
+  --presence-penalty 0.0 \
+  --repeat-penalty 1 \
   --reasoning off \
   --jinja \
-  --chat-template-file ./qwen3.8.template.jinja \
   --spec-type draft-mtp --spec-draft-n-max 5 # for MTP
