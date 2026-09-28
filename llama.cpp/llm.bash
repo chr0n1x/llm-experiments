@@ -33,8 +33,9 @@ export GGML_CUDA_FORCE_MMQ=true
 # -hf ukisai/Swift-Qwen3.8-27B-GGUF:Q4_K_M \
 /home/kran/Code/kran/llm-experiments/llama.cpp/llama.cpp/build/bin/llama-server \
   --n-cpu-moe 11 \
-  -hf ukisai/Swift-Qwen3.8-27B-GGUF:Q4_K_M \
-  --cache-type-v q4_0 --cache-type-k q8_0 \
+  -hf unsloth/Qwen3.8-27B-GGUF:UD-Q4_K_XL \
+  --chat-template-file ./qwen3.8.template.jinja \
+  --cache-type-v q4_0 --cache-type-k q5_0 \
   --host :: \
   --port 8000 \
   --n-gpu-layers all --ctx-size 210000 \
@@ -50,4 +51,4 @@ export GGML_CUDA_FORCE_MMQ=true
   --repeat-penalty 1 \
   --reasoning off \
   --jinja \
-  --spec-type draft-mtp --spec-draft-n-max 5 # for MTP
+  --spec-type draft-mtp --spec-draft-n-max 2 # for MTP
