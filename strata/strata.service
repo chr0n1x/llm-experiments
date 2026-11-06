@@ -16,7 +16,7 @@ Type=exec
 User=kran
 Group=kran
 WorkingDirectory=/home/kran/Code/kran/llm-experiments/strata
-Environment=STRATA_MODEL=ud-iq4_xs
+Environment=STRATA_PROFILE=/home/kran/.local/share/strata/install/strata-unsloth-ud-iq4_xs.json
 Environment=STRATA_PORT=8000
 ExecStart=/home/kran/Code/kran/llm-experiments/strata/strata.sh
 Restart=on-failure
