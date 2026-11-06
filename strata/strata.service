@@ -1,13 +1,14 @@
 # Strata inference server - Qwen3.8-Flash-Next on the RTX 3090 box.
 #
-# The unit only serves. Downloading, context size and tuning are all decided by
-# the one-off setup step (`strata.sh setup`, 256k by default) because strata
-# launch daemonises its runtime and cannot be the supervised process, and
-# because `strata serve` has no context flag - the context is written into the
-# run config as --max-context at setup time.
+# Serving only. The --profile file is the whole serving configuration: strata
+# wrote the context, KV format and expert settings into it when setup ran, and
+# `strata serve` has no flag for any of them.
 #
-# Installed by `strata.sh setup`, which symlinks this file into
-# /etc/systemd/system and enables it.
+# To serve a different pack or context, run ./setup.sh and point --profile at
+# the run config it prints. `strata models list` shows what is installed.
+#
+# Installed by ./setup.sh, which symlinks this file into /etc/systemd/system
+# and enables it.
 [Unit]
 Description=Strata Inference Server
 After=network.target
@@ -15,10 +16,7 @@ After=network.target
 Type=exec
 User=kran
 Group=kran
-WorkingDirectory=/home/kran/Code/kran/llm-experiments/strata
-Environment=STRATA_PROFILE=/home/kran/.local/share/strata/install/strata-unsloth-ud-iq4_xs.json
-Environment=STRATA_PORT=8000
-ExecStart=/home/kran/Code/kran/llm-experiments/strata/strata.sh
+ExecStart=/home/kran/.local/bin/strata serve --profile /home/kran/.local/share/strata/install/strata-unsloth-ud-iq4_xs.json --host 0.0.0.0 --port 8000
 Restart=on-failure
 RestartSec=5s
 StandardOutput=journal
