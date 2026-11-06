@@ -34,7 +34,7 @@ if [[ "$cmd" == tty ]]; then
         --port "$PORT" --access lan --no-api-key --tune "$TUNE" \
         --yes --no-tui --restart
 
-    return 0
+    exit 0
 fi
 
 if [[ "$cmd" == setup ]]; then
@@ -48,12 +48,12 @@ if [[ "$cmd" == setup ]]; then
     sudo ln -sf "$UNIT" /etc/systemd/system/strata.service
     sudo systemctl daemon-reload
     sudo systemctl enable --now strata.service
-    return 0
+    exit 0
 fi
 
 if [[ ! -f "$PROFILE" ]]; then
     printf 'no run config at %s\nrun %s setup first\n' "$PROFILE" "$0" >&2
-    return 1
+    exit 1
 fi
 
 if [[ "$cmd" == status ]]; then
@@ -64,7 +64,7 @@ for i, flag in enumerate(args):
     if flag in ("--max-context", "--kv", "--kv-resident"):
         print(flag, args[i + 1])
 EOF
-    return 0
+    exit 0
 fi
 
 exec "$STRATA_BIN" serve --profile "$PROFILE" --host 0.0.0.0 --port "$PORT"
