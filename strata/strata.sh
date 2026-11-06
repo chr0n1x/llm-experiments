@@ -20,7 +20,7 @@ PORT="${STRATA_PORT:-8000}"
 KV="${STRATA_KV:-int8}"
 TUNE="${STRATA_TUNE:-quick}"
 STRATA_BIN="${STRATA_BIN:-$HOME/.local/bin/strata}"
-PROFILE="${STRATA_PROFILE:-$HOME/.local/share/strata/install/strata-$MODEL.json}"
+PROFILE="${STRATA_PROFILE:-$HOME/.local/share/strata/install/strata-${FAMILY}-${MODEL}.json}"
 UNIT="${STRATA_UNIT:-$HOME/Code/kran/llm-experiments/strata/strata.service}"
 # strata names its runtime profile launch-<model>-<context>, as `strata profile list` shows.
 RUNTIME_PROFILE="launch-$MODEL-$CONTEXT"
@@ -33,6 +33,8 @@ if [[ "$cmd" == tty ]]; then
         --family "$FAMILY" --model "$MODEL" --context "$CONTEXT" --kv "$KV" \
         --port "$PORT" --access lan --no-api-key --tune "$TUNE" \
         --yes --no-tui --restart
+
+    return 0
 fi
 
 if [[ "$cmd" == setup ]]; then
@@ -46,12 +48,12 @@ if [[ "$cmd" == setup ]]; then
     sudo ln -sf "$UNIT" /etc/systemd/system/strata.service
     sudo systemctl daemon-reload
     sudo systemctl enable --now strata.service
-    exit 0
+    return 0
 fi
 
 if [[ ! -f "$PROFILE" ]]; then
     printf 'no run config at %s\nrun %s setup first\n' "$PROFILE" "$0" >&2
-    exit 1
+    return 1
 fi
 
 if [[ "$cmd" == status ]]; then
@@ -62,7 +64,7 @@ for i, flag in enumerate(args):
     if flag in ("--max-context", "--kv", "--kv-resident"):
         print(flag, args[i + 1])
 EOF
-    exit 0
+    return 0
 fi
 
 exec "$STRATA_BIN" serve --profile "$PROFILE" --host 0.0.0.0 --port "$PORT"
