@@ -1,3 +1,9 @@
+[submodule "llama.cpp/blis"]
+	path = llama.cpp/blis
+	url = https://github.com/flame/blis
+[submodule "llama.cpp/llama.cpp"]
+	path = llama.cpp/llama.cpp
+	url = https://github.com/ggml-org/llama.cpp
 [submodule "strata/Strata"]
 	path = strata/Strata
 	url = https://github.com/Niko1221/Strata.git
